@@ -1,0 +1,13 @@
+<launch>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="use_sim_time" value="true"/>
+    <arg name="debug" value="false"/>
+    <arg name="gui" value="$(arg gui)" />
+  </include>
+  
+  
+  <include file="$(find glennan_second_floor)/launchers/add_glennan_2nd_flr.launch.xml"/>
+  <include file="$(find glennan_second_floor)/launchers/load_glennan.launch.xml"/>
+  
+
+</launch>
