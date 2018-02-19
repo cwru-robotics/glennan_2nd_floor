@@ -1,0 +1,16 @@
+<launch>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="use_sim_time" value="true"/>
+    <arg name="debug" value="false"/>
+    <!--arg name="gui" value="$(arg gui)" /-->
+  </include>
+  
+<node name="spawn_glennan_2nd_flr" pkg="gazebo_ros" type="spawn_model" args="-file $(find glennan_second_floor)/glennan_2nd_flr.urdf -urdf -model glennan_2nd_flr -x 0 -y -0 -z 0  -Y 0" />
+
+  <arg name="map_file" default="$(find glennan_second_floor)/glennan_2nd_flr_model_map.yaml"/>
+
+  <!-- Run the map server -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+  
+
+</launch>
